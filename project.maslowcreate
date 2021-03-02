@@ -4,9 +4,55 @@
     "x": 0,
     "y": 0,
     "uniqueID": 148606,
-    "ioValues": [],
+    "ioValues": [
+        {
+            "name": "spacing",
+            "ioValue": 10
+        },
+        {
+            "name": "number",
+            "ioValue": 10
+        },
+        {
+            "name": "inputShape",
+            "ioValue": 10
+        }
+    ],
     "topLevel": true,
     "allAtoms": [
+        {
+            "atomType": "Input",
+            "name": "inputShape",
+            "x": 0.013333333333333334,
+            "y": 0.3103448275862069,
+            "uniqueID": 194714,
+            "ioValues": []
+        },
+        {
+            "atomType": "Input",
+            "name": "number",
+            "x": 0.013333333333333334,
+            "y": 0.5172413793103449,
+            "uniqueID": 194794,
+            "ioValues": []
+        },
+        {
+            "atomType": "Code",
+            "name": "Code",
+            "x": 0.35,
+            "y": 0.632183908045977,
+            "uniqueID": 806645,
+            "ioValues": [],
+            "code": "//You can learn more about all of the available methods at https://jsxcad.js.org/app/UserGuide.html \n\n\nfunction main(inputShape, numberOfInstances, Spacing){\n  console.log(\"Begin\");\n  console.log(typeof(numberOfInstances));\n  var outputShape = inputShape;\n  var i = 1;\n  while(i < numberOfInstances){\n      console.log(i);\n      outputShape = union(outputShape, translate([i*Spacing, 0, 0], inputShape));\n      i++;\n  }\n  return outputShape;\n}\n\nreturn main(inputShape, numberOfInstances, Spacing)"
+        },
+        {
+            "atomType": "Input",
+            "name": "spacing",
+            "x": 0.013333333333333334,
+            "y": 0.7816091954022989,
+            "uniqueID": 775360,
+            "ioValues": []
+        },
         {
             "atomType": "Output",
             "name": "Output",
@@ -15,7 +61,35 @@
             "ioValues": []
         }
     ],
-    "allConnectors": [],
+    "allConnectors": [
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "inputShape",
+            "ap2Primary": false,
+            "ap1ID": 194714,
+            "ap2ID": 806645
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "numberOfInstances",
+            "ap2Primary": false,
+            "ap1ID": 194794,
+            "ap2ID": 806645
+        },
+        {
+            "ap1Name": "geometry",
+            "ap2Name": "number or geometry",
+            "ap2Primary": false,
+            "ap1ID": 806645
+        },
+        {
+            "ap1Name": "number or geometry",
+            "ap2Name": "Spacing",
+            "ap2Primary": false,
+            "ap1ID": 775360,
+            "ap2ID": 806645
+        }
+    ],
     "fileTypeVersion": 1,
     "filetypeVersion": 1,
     "circleSegmentSize": "0.1"
